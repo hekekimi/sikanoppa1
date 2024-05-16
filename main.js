@@ -59,6 +59,7 @@ function startGame() {
 }
 
 function playTurn() {
+    pelaa_vuoro.innerHTML = `Pelaa (${pelaajat[nykyinenPelaajaIndex].nimi})`; //pelaajan nimen näyttö napissa
     lopeta_vuoro.disabled = false; // Lopeta vuoro -painike oletuksena toimiva
     let heitto = Math.floor(Math.random() * 6) + 1; // varsinainen nopan heitto
 
@@ -82,6 +83,7 @@ function playTurn() {
         // Vuoron vaihto
         nykyinenPelaajaIndex = (nykyinenPelaajaIndex + 1) % pelaajat.length;
         lopeta_vuoro.disabled = true; // Lopeta vuoro -painike pois käytöstä
+        pelaa_vuoro.innerHTML = `Pelaa (${pelaajat[nykyinenPelaajaIndex].nimi})`;
     } else {
         pelaajat[nykyinenPelaajaIndex].pisteet += heitto;
         let nykyisetPisteet = document.getElementById("yhteensa");
@@ -95,4 +97,5 @@ function switchTurn() {
     ilmoitus.innerHTML = `Vuoro vaihtuu, säilytät ${pelaajat[nykyinenPelaajaIndex].pisteet} pistettä!`;
     nykyinenPelaajaIndex = (nykyinenPelaajaIndex + 1) % pelaajat.length;
     lopeta_vuoro.disabled = true; // Lopeta vuoro -painike pois käytöstä
+    pelaa_vuoro.innerHTML = `Pelaa (${pelaajat[nykyinenPelaajaIndex].nimi})`;
 }

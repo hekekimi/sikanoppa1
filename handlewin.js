@@ -13,6 +13,7 @@ export function handleWinning(pelaajat, nykyinenPelaajaIndex, pisteraja){//voitt
         voittoilmoitus.appendChild(voittajaNimi);
         document.body.appendChild(voittoilmoitus);
         showResults(pelaajat);
+        playAgainButton(); //pelaa uudelleen
 
     }
 
